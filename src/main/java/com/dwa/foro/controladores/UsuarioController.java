@@ -30,7 +30,7 @@ public class UsuarioController {
 	public String agregar(@RequestParam("username") String correoe,
 			@RequestParam("password") String clave,
 			Model modelo) {
-			return "redirect:temas/listar";
+			return "redirect:/temas/listar";
 	}
 	
 	@GetMapping("/usuario/agregar")
@@ -44,7 +44,7 @@ public class UsuarioController {
 			@RequestParam("clave") String clave, HttpSession sesion) {
 		boolean res = servicioUsuario.agregar(user, clave, sesion);
 		if(res) {
-			return "redirect:temas/listar";
+			return "redirect:/temas/listar";
 		}
 		modelo.addAttribute("error", servicioUsuario.getMensaje());
 		return "usuario/agregar";
